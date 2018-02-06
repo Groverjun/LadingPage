@@ -8,6 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="scss/index.css"/>
 		<style type="text/css">
 			ul,ol{list-style: none;margin: 0;}
+			img{width: 100%;}
 		</style>
 	</head>
 	<body>
@@ -18,10 +19,9 @@
 					<div class="col-lg-12">
 					    <div class="swiper-container" style="height: 432px;width: 768px;margin: auto;">
 					        <div class="swiper-wrapper">
-					            <div class="swiper-slide"v-for="banner in bannerImg" >
-					            	<img v-bind:src="banner" />
+					            <div class="swiper-slide"v-for="uploadingBanner in bannerImg" >
+					            	<img v-bind:src="uploadingBanner" />
 					            </div>
-					            
 					        </div>
 					        <div class="swiper-pagination swiper-pagination-white"></div>
 					    </div>
@@ -29,10 +29,11 @@
 				</div>
 			</div>
 			<div class="compile">
-				<p v-show="false"><input type="text" v-model="html"/></p>
-				<a href="javascript:;" class="file btn btn-success btn-lg" v-on:change="getBanner(index)" v-model="bannerImg[index]" v-for="(uploadingBanner,index) in bannerImg">
+				<a href="javascript:;" class="file btn btn-success btn-lg" 
+				v-on:change="getBanner(index)" v-model="bannerImgTo" v-for="(bannerImgF,index) in bannerImg">
 					上传第{{index+1}}张图片<input type="file" ref="uploadingBannerImg">
 				</a>
+				<button class="btn btn-primary" v-on:click="addBannerImg">再来一张图片</button>
 			</div>
 			<!--操作区-->
 		</div>
