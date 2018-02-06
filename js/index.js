@@ -4,7 +4,8 @@ let vm=new Vue({
 	data:{
 		html:"",
 		name:"",
-		bannerImg:["img/11.jpg","img/22.jpg","img/33.jpg","img/44.jpg","img/55.jpg"]
+		bannerImg:["img/11.jpg","img/22.jpg","img/33.jpg","img/44.jpg","img/55.jpg"],
+		bannerImgTo:[]
 	},
 	mounted:function(){
 		var swiper = new Swiper('.swiper-container', {
@@ -22,10 +23,11 @@ let vm=new Vue({
             });
 	},
 	methods:{
-		getBanner(){
+		getBanner(index){
 			var _this= this;
-			this.dataImg(_this,this.$refs.uploadingBannerImg,function(data){
-				console.log(0)
+			this.dataImg(_this,this.$refs.uploadingBannerImg[index],function(data){
+				_this.bannerImg[index]=data;
+				console.log(_this.bannerImg)
 			})			
 		},
 		/*上传图片**/

@@ -30,7 +30,7 @@
 			</div>
 			<div class="compile">
 				<p v-show="false"><input type="text" v-model="html"/></p>
-				<a href="javascript:;" class="file btn btn-success btn-lg" v-on:change="getBanner" v-model="bannerImg[index]" v-for="(uploadingBanner,index) in bannerImg">
+				<a href="javascript:;" class="file btn btn-success btn-lg" v-on:change="getBanner(index)" v-model="bannerImg[index]" v-for="(uploadingBanner,index) in bannerImg">
 					上传第{{index+1}}张图片<input type="file" ref="uploadingBannerImg">
 				</a>
 			</div>
