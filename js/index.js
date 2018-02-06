@@ -1,5 +1,5 @@
 /*banner*/
-let vm=new Vue({
+var vm=new Vue({
 	el:"#html",
 	data:{
 		html:"",
@@ -18,21 +18,20 @@ let vm=new Vue({
 				observeParents: true,
 				autoplayDisableOnInteraction : false,
                 onTouchEnd: function() {
-                    swiper.startAutoplay()
+                    swiper.startAutoplay();
                 }
             });
 	},
 	methods:{
 		addBannerImg(){
-			console.log(0)
-			this.bannerImg.push("img/11.jpg")
+			this.bannerImg.push("img/11.jpg");
 		},
 		getBanner(index){
 			var _this= this;
 			this.dataImg(_this,this.$refs.uploadingBannerImg[index],function(data){
-				_this.bannerImgTo=data
+				_this.bannerImgTo=data;
 				_this.bannerImg[index]=_this.bannerImgTo;
-				_this.bannerImgTo=""
+				_this.bannerImgTo="";
 			})			
 		},
 		/*上传图片**/
@@ -52,7 +51,7 @@ let vm=new Vue({
                     }  
                     reader.readAsDataURL(file);  
                 } catch (e) {  
-                    alert('图片转Base64出错啦！' + e.toString())  
+                    alert('图片转Base64出错啦！' + e.toString());
                 }  
             }					
 		}
