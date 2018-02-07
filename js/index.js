@@ -6,7 +6,7 @@ var vm=new Vue({
 		name:"",
 		bannerImg:["img/11.jpg","img/22.jpg","img/33.jpg","img/44.jpg","img/55.jpg"],
 		bannerImgTo:"",
-		moreImgT:["0"],
+		moreImgT:[],
 		v:"00"
 	},
 	mounted:function(){
@@ -26,8 +26,12 @@ var vm=new Vue({
 	},
 	methods:{
 		moreImg(){
+			this.moreImgT=[]
 			var fileList=this.$refs.moreImg.files;
-			this.v=window.URL.createObjectURL(fileList[0])
+			for(var i=0;i<fileList.length;i++){
+				this.moreImgT.push(window.URL.createObjectURL(fileList[i]))
+			}
+			console.log(this.moreImgT)
 		},
 		addBannerImg(){
 			this.bannerImg.push("img/11.jpg");
