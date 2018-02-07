@@ -6,6 +6,8 @@ var vm=new Vue({
 		name:"",
 		bannerImg:["img/11.jpg","img/22.jpg","img/33.jpg","img/44.jpg","img/55.jpg"],
 		bannerImgTo:"",
+		moreImgT:["0"],
+		v:"00"
 	},
 	mounted:function(){
 		var swiper = new Swiper('.swiper-container', {
@@ -23,8 +25,15 @@ var vm=new Vue({
             });
 	},
 	methods:{
+		moreImg(){
+			var fileList=this.$refs.moreImg.files;
+			this.v=window.URL.createObjectURL(fileList[0])
+		},
 		addBannerImg(){
 			this.bannerImg.push("img/11.jpg");
+		},
+		removeBannerImg(){
+			this.bannerImg.pop()
 		},
 		getBanner(index){
 			var _this= this;
